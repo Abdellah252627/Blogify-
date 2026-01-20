@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogify - Lazy Loading Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style-lazy.css">
+</head>
+<body>
+    <header>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="logo" data-lang-key="logo">Blogify 📝</div>
+        <nav>
+             <button class="btn btn-secondary" id="about-btn" data-lang-key="about">About</button>
+             <button class="btn btn-secondary" id="bookmarks-btn" data-lang-key="bookmarks">Bookmarks</button>
+        </nav>
+        <div class="controls">
+            <button class="btn" id="new-article-btn" data-lang-key="new_article">New Article</button>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" id="tools-menu-btn">🛠️ Tools</button>
+                <div class="dropdown-menu" id="tools-menu">
+                    <button class="dropdown-item" id="export-btn">Export Articles</button>
+                    <button class="dropdown-item" id="import-btn">Import Articles</button>
+                    <button class="dropdown-item" id="rss-feed-btn">RSS Feed</button>
+                    <button class="dropdown-item" id="analytics-btn">Analytics</button>
+                </div>
+            </div>
+            <button class="btn btn-secondary" id="user-profile-btn">👤</button>
+            <button class="btn btn-secondary" id="theme-toggle-btn">🌙</button>
+            <button class="btn btn-secondary" id="lang-toggle-btn">ع</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="page-header">
+                <h2 data-lang-key="recent_articles">Recent Articles</h2>
+                <div class="search-controls">
+                    <input type="text" id="search-input" placeholder="Search articles..." data-lang-key="search_placeholder">
+                    <select id="category-filter">
+                        <option value="" data-lang-key="all_categories">All Categories</option>
+                    </select>
+                </div>
+            </div>
+            <div class="tag-cloud" id="tag-cloud">
+                <!-- Tags will be injected here -->
+            </div>
+            <div id="articles-grid">
+                <!-- Articles will be loaded with lazy loading -->
+            </div>
+        </section>
+
+        <!-- Other pages would go here... -->
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top-btn" class="btn btn-secondary" title="Go to top">↑</button>
+
+    <script src="../script.js"></script>
+</body>
+</html>
