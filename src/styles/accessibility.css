@@ -1,0 +1,786 @@
+/* Accessibility Styles for Screen Readers and Keyboard Navigation */
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip Links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    padding: 1rem var(--mobile-padding);
+    background: var(--muted);
+    border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-list li {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: '/';
+    margin: 0 0.5rem;
+    color: var(--muted-foreground);
+}
+
+.breadcrumb-list a {
+    color: var(--primary);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+}
+
+.breadcrumb-list a:hover,
+.breadcrumb-list a:focus {
+    background-color: var(--accent);
+    text-decoration: underline;
+}
+
+.breadcrumb-list span {
+    color: var(--foreground);
+    padding: 0.25rem 0.5rem;
+}
+
+/* Landmark Navigation */
+.landmark-navigation {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    max-width: 200px;
+}
+
+.landmark-navigation h3 {
+    margin: 0 0 1rem 0;
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.landmark-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.landmark-navigation li {
+    margin-bottom: 0.5rem;
+}
+
+.landmark-navigation a {
+    display: block;
+    padding: 0.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.landmark-navigation a:hover,
+.landmark-navigation a:focus {
+    background-color: var(--accent);
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Focus Management */
+:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* High Contrast Focus */
+@media (prefers-contrast: high) {
+    :focus {
+        outline: 3px solid #000;
+        background: #fff;
+        color: #000;
+        outline-offset: 2px;
+    }
+    
+    .skip-link:focus {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .landmark-navigation a:focus {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+}
+
+/* Focus Indicators for Interactive Elements */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus,
+[tabindex]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Focus Visible for Keyboard Navigation */
+@media (hover: hover) {
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    a:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        border-top: 3px solid var(--primary);
+    }
+    
+    .article-card:hover {
+        transform: none;
+    }
+    
+    .nav-link:hover {
+        transform: none;
+    }
+    
+    .mobile-menu-toggle:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --background: #fff;
+        --foreground: #000;
+        --primary: #0000ff;
+        --primary-foreground: #fff;
+        --accent: #ffff00;
+        --border: #000;
+        --muted: #f0f0f0;
+        --muted-foreground: #000;
+        --card: #fff;
+        --destructive: #ff0000;
+        --success: #008000;
+        --warning: #ff8c00;
+        --info: #0000ff;
+    }
+    
+    .card {
+        border: 2px solid #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn {
+        border: 2px solid #000;
+        font-weight: 600;
+    }
+    
+    .btn:hover {
+        background: #000;
+        color: #fff;
+    }
+    
+    input,
+    textarea,
+    select {
+        border: 2px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    .article-card {
+        border: 2px solid #000;
+    }
+    
+    .modal-content {
+        border: 2px solid #000;
+        background: #fff;
+    }
+}
+
+/* Large Text Mode */
+@media (prefers-reduced-data: reduce) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Touch Target Improvements */
+@media (pointer: coarse) {
+    button,
+    input,
+    textarea,
+    select,
+    a,
+    .clickable,
+    .article-card {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 8px;
+    }
+    
+    .btn {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .search-input {
+        padding: 12px;
+        font-size: 16px;
+        min-height: 44px;
+    }
+    
+    .nav-link {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Screen Reader Optimizations */
+@media speech {
+    .sr-only {
+        display: none;
+    }
+    
+    .skip-link {
+        display: block;
+    }
+    
+    .landmark-navigation {
+        display: block;
+    }
+    
+    .breadcrumb {
+        display: block;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .skip-link,
+    .landmark-navigation,
+    .breadcrumb,
+    .modal-overlay,
+    .toast-container,
+    .progress-container {
+        display: none !important;
+    }
+    
+    a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    .article-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+    
+    p, ul, ol {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* Keyboard Navigation Visual Indicators */
+.keyboard-navigation .nav-link:focus,
+.keyboard-navigation .btn:focus,
+.keyboard-navigation .article-card:focus,
+.keyboard-navigation input:focus,
+.keyboard-navigation textarea:focus,
+.keyboard-navigation select:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+    background: var(--accent);
+}
+
+/* Modal Accessibility */
+.modal {
+    z-index: 10000;
+}
+
+.modal-overlay {
+    z-index: 9999;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 10001;
+}
+
+.modal:focus-within {
+    outline: 2px solid var(--primary);
+}
+
+/* Form Accessibility */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-control:invalid {
+    border-color: var(--destructive);
+}
+
+.form-control:invalid:focus {
+    border-color: var(--destructive);
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.form-error {
+    color: var(--destructive);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.form-success {
+    color: var(--success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Table Accessibility */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background: var(--muted);
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+caption {
+    caption-side: bottom;
+    text-align: center;
+    font-style: italic;
+    color: var(--muted-foreground);
+    margin-top: 0.5rem;
+}
+
+/* List Accessibility */
+ul,
+ol {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Link Accessibility */
+a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+    color: var(--primary-hover);
+    text-decoration-thickness: 3px;
+}
+
+a:visited {
+    color: var(--primary-visited);
+}
+
+/* Image Accessibility */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+img[alt=""] {
+    border: 2px dashed var(--destructive);
+}
+
+/* Video/Media Accessibility */
+video,
+audio {
+    max-width: 100%;
+    border-radius: var(--radius);
+}
+
+video::media-controls,
+audio::media-controls {
+    background: var(--muted);
+    border-radius: var(--radius);
+}
+
+/* Progress Bar Accessibility */
+progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: var(--radius);
+    background: var(--muted);
+    color: var(--primary);
+}
+
+progress::-webkit-progress-bar {
+    background: var(--primary);
+    border-radius: var(--radius);
+}
+
+progress::-moz-progress-bar {
+    background: var(--primary);
+    border-radius: var(--radius);
+}
+
+/* Range Slider Accessibility */
+input[type="range"] {
+    width: 100%;
+    height: 2rem;
+    background: transparent;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: var(--muted);
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--foreground);
+}
+
+input[type="range"]::-moz-range-track {
+    background: var(--muted);
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--foreground);
+}
+
+/* Checkbox and Radio Accessibility */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Custom Checkbox Styles */
+.custom-checkbox,
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.custom-checkbox input,
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .checkmark,
+.custom-radio .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background: var(--muted);
+    border: 2px solid var(--border);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox input:checked ~ .checkmark,
+.custom-radio input:checked ~ .checkmark {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.custom-checkbox .checkmark::after,
+.custom-radio .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+    display: block;
+    left: 0.35rem;
+    top: 0.2rem;
+    width: 0.25rem;
+    height: 0.5rem;
+    border: solid var(--primary-foreground);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-radio .checkmark {
+    border-radius: 50%;
+}
+
+.custom-radio input:checked ~ .checkmark::after {
+    display: block;
+    left: 0.4rem;
+    top: 0.4rem;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background: var(--primary-foreground);
+}
+
+/* Loading States for Screen Readers */
+.loading[aria-busy="true"]::before {
+    content: "Loading";
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Error States for Screen Readers */
+.error[aria-invalid="true"]::before {
+    content: "Error: " attr(aria-invalid);
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Success States for Screen Readers */
+.success[aria-live="polite"]::before {
+    content: attr(aria-live);
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Responsive Accessibility */
+@media (max-width: 768px) {
+    .landmark-navigation {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        transform: none;
+        max-width: none;
+    }
+    
+    .breadcrumb {
+        padding: 0.75rem var(--mobile-padding);
+    }
+    
+    .breadcrumb-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .breadcrumb-list li:not(:last-child)::after {
+        content: '>';
+        margin: 0 0.25rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-control {
+        padding: 0.75rem;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    .btn {
+        padding: 0.75rem 1rem;
+        min-height: 44px;
+        font-size: 16px;
+    }
+}
+
+/* Dark Mode Accessibility */
+.dark {
+    --focus-outline: #fff;
+}
+
+.dark :focus {
+    outline-color: var(--focus-outline);
+}
+
+/* High Contrast + Dark Mode */
+@media (prefers-contrast: high) {
+    .dark {
+        --background: #000;
+        --foreground: #fff;
+        --primary: #ffff00;
+        --primary-foreground: #000;
+        --accent: #00ffff;
+        --border: #fff;
+        --muted: #333;
+        --muted-foreground: #fff;
+        --card: #000;
+        --focus-outline: #fff;
+    }
+    
+    .dark :focus {
+        outline-color: var(--focus-outline);
+    }
+}
+
+/* Animation Respect for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .animated,
+    .fade-in,
+    .slide-in,
+    .bounce {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Focus Management for Dynamic Content */
+.dynamic-content:focus-within {
+    outline: 2px solid var(--primary);
+}
+
+.dynamic-content *:focus {
+    position: relative;
+    z-index: 1;
+}
