@@ -1,0 +1,651 @@
+/* Enhanced Notifications Styles */
+
+/* Progress Bar Styles */
+.progress-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+}
+
+.progress-bar-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 0.5rem;
+    background: var(--muted);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.progress-title {
+    font-weight: 600;
+    color: var(--foreground);
+    font-size: 0.875rem;
+}
+
+.progress-percentage {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.875rem;
+}
+
+.progress-time {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.progress-cancel {
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all var(--transition-fast);
+}
+
+.progress-cancel:hover {
+    background: var(--destructive);
+    color: white;
+}
+
+.progress-bar-wrapper {
+    padding: 0 1rem 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progress-fill.progress-warning {
+    background: var(--warning);
+}
+
+.progress-fill.progress-info {
+    background: var(--info);
+}
+
+.progress-fill.progress-success {
+    background: var(--success);
+}
+
+.progress-fill.progress-danger {
+    background: var(--destructive);
+}
+
+.progress-status {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    text-align: center;
+}
+
+.progress-details {
+    padding: 0.5rem 1rem 1rem;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    border-top: 1px solid var(--border);
+}
+
+.progress-bar-container.progress-completed {
+    border-left: 4px solid var(--success);
+}
+
+.progress-bar-container.progress-cancelled {
+    border-left: 4px solid var(--destructive);
+}
+
+.progress-bar-container.progress-error {
+    border-left: 4px solid var(--destructive);
+}
+
+/* Toast Notification Styles */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.toast {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    pointer-events: auto;
+    animation: slideInRight 0.3s ease-out;
+    transition: all var(--transition-fast);
+}
+
+.toast:hover {
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.toast-success {
+    border-left: 4px solid var(--success);
+}
+
+.toast-error {
+    border-left: 4px solid var(--destructive);
+}
+
+.toast-warning {
+    border-left: 4px solid var(--warning);
+}
+
+.toast-info {
+    border-left: 4px solid var(--info);
+}
+
+.toast-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.75rem;
+}
+
+.toast-success .toast-icon {
+    background: var(--success);
+}
+
+.toast-error .toast-icon {
+    background: var(--destructive);
+}
+
+.toast-warning .toast-icon {
+    background: var(--warning);
+}
+
+.toast-info .toast-icon {
+    background: var(--info);
+}
+
+.toast-message {
+    flex: 1;
+    color: var(--foreground);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all var(--transition-fast);
+    line-height: 1;
+}
+
+.toast-close:hover {
+    background: var(--muted);
+    color: var(--foreground);
+}
+
+.toast-progress {
+    height: 3px;
+    background: var(--border);
+    overflow: hidden;
+}
+
+.toast-progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.05s linear;
+}
+
+/* Loading States Styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.loading-content {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: scaleIn 0.3s ease-out;
+}
+
+.loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--border);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+.loading-text {
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.loading-progress {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.loading-progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.loading-cancel {
+    background: var(--destructive);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.loading-cancel:hover {
+    background: var(--destructive-hover);
+}
+
+/* Element-specific loading */
+.loading-state {
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-state .loading-overlay {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius);
+}
+
+.dark .loading-state .loading-overlay {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Button loading states */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: inherit;
+}
+
+.dark .loading::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.button-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+.button-text {
+    display: inline-block;
+}
+
+/* Form loading states */
+.loading-state input,
+.loading-state button,
+.loading-state select,
+.loading-state textarea {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Table loading states */
+.loading-row {
+    text-align: center;
+    padding: 2rem;
+}
+
+.table-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.table-loading .loading-spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+}
+
+/* Error Modal Styles */
+.error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.error-modal .modal-content {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: scaleIn 0.3s ease-out;
+}
+
+.error-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.error-modal .modal-header h3 {
+    margin: 0;
+    color: var(--foreground);
+    font-size: 1.25rem;
+}
+
+.error-modal .modal-close {
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all var(--transition-fast);
+}
+
+.error-modal .modal-close:hover {
+    background: var(--muted);
+    color: var(--foreground);
+}
+
+.error-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.error-message {
+    margin-bottom: 1.5rem;
+}
+
+.error-message p {
+    color: var(--foreground);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.error-details {
+    margin-top: 1.5rem;
+}
+
+.error-details summary {
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 500;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--muted);
+    transition: all var(--transition-fast);
+}
+
+.error-details summary:hover {
+    background: var(--accent);
+}
+
+.error-details pre {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    overflow-x: auto;
+    color: var(--foreground);
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .progress-container,
+    .toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .progress-bar-container,
+    .toast {
+        margin-bottom: 0.5rem;
+    }
+    
+    .error-modal .modal-content {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+    }
+    
+    .loading-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+    }
+    
+    .error-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Dark mode adjustments */
+.dark .loading-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.dark .loading-content {
+    background: var(--card);
+}
+
+.dark .error-modal {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .progress-bar-container,
+    .toast {
+        border: 2px solid currentColor;
+    }
+    
+    .progress-fill,
+    .toast-progress-fill {
+        border: 1px solid currentColor;
+    }
+    
+    .loading-spinner {
+        border-width: 4px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .progress-bar-container,
+    .toast,
+    .loading-overlay,
+    .error-modal {
+        animation: none;
+        transition: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+    }
+}
+
+/* Print styles */
+@media print {
+    .progress-container,
+    .toast-container,
+    .loading-overlay,
+    .error-modal {
+        display: none !important;
+    }
+}

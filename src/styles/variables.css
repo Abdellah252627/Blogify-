@@ -1,0 +1,100 @@
+/* CSS Variables and Design System */
+:root {
+    /* Color Palette - Modern & Accessible */
+    --background: #ffffff;
+    --foreground: #374151;
+    --card: #ffffff;
+    --card-foreground: #374151;
+    --popover: #ffffff;
+    --popover-foreground: #374151;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #f8fafc;
+    --secondary-foreground: #4b5563;
+    --muted: #f9fafb;
+    --muted-foreground: #6b7280;
+    --accent: #f3f4f6;
+    --accent-foreground: #374151;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #3b82f6;
+    --radius: 0.75rem;
+    
+    /* Enhanced Colors */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --info: #06b6d4;
+    --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    --gradient-2: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+    --gradient-3: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    
+    /* Spacing & Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+    
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --header-height: 70px;
+    --sidebar-width: 280px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+}
+
+/* Dark Mode */
+.dark {
+    --background: #1e293b;
+    --foreground: #f1f5f9;
+    --card: #334155;
+    --card-foreground: #f1f5f9;
+    --popover: #334155;
+    --popover-foreground: #f1f5f9;
+    --primary: #60a5fa;
+    --primary-foreground: #1e293b;
+    --secondary: #1e293b;
+    --secondary-foreground: #cbd5e1;
+    --muted: #0f172a;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --accent-foreground: #f1f5f9;
+    --border: #334155;
+    --input: #334155;
+    --ring: #60a5fa;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    --text-align-start: right;
+    --text-align-end: left;
+    --float-start: right;
+    --float-end: left;
+    --border-start: border-left;
+    --border-end: border-right;
+    --margin-start: margin-left;
+    --margin-end: margin-right;
+    --padding-start: padding-left;
+    --padding-end: padding-right;
+}
+
+[dir="ltr"] {
+    --text-align-start: left;
+    --text-align-end: right;
+    --float-start: left;
+    --float-end: right;
+    --border-start: border-right;
+    --border-end: border-left;
+    --margin-start: margin-right;
+    --margin-end: margin-left;
+    --padding-start: padding-right;
+    --padding-end: padding-left;
+}
